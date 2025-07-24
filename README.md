@@ -224,8 +224,4 @@ _This extension is not affiliated with miHoYo/HoYoverse or Game8.co. Genshin Imp
 
 **Made with ❤️ for the Genshin Impact farming community**
 
-[🐛 Report Bug](https://github.com/yourusername/DropCalendar/issues) •
-[✨ Request Feature](https://github.com/yourusername/DropCalendar/issues) •
-[🤝 Contribute](https://github.com/yourusername/DropCalendar/pulls)
-
 </div>
