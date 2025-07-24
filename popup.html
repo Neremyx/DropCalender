@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DropCalendar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1><i class="fas fa-calendar-alt"></i> DropCalendar</h1>
+        <p class="subtitle">Genshin Impact Talent Book Schedule</p>
+      </header>
+
+      <div class="loading" id="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading today's talent books...</p>
+      </div>
+
+      <div class="error-message hidden" id="error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>Failed to load data. Using cached information.</p>
+      </div>
+
+      <div class="content hidden" id="content">
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="character-search" placeholder="Search character..." />
+            <button id="clear-search" class="clear-btn hidden">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="search-results hidden" id="search-results"></div>
+        </div>
+
+        <div class="today-info">
+          <div class="day-display">
+            <i class="fas fa-calendar-day"></i>
+            <span id="current-day">Today</span>
+          </div>
+          <div class="update-info">
+            <small id="last-updated">Last updated: Never</small>
+            <button id="refresh-btn" class="refresh-btn" title="Refresh data">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="books-container" id="books-container">
+          <!-- Books will be populated by JavaScript -->
+        </div>
+
+        <div class="sunday-note">
+          <i class="fas fa-info-circle"></i>
+          <span>All talent books are available on Sunday!</span>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          Data from
+          <a href="https://game8.co/games/Genshin-Impact/archives/311474" target="_blank"
+            >Game8.co</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

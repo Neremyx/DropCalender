@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "DropCalendar",
+  "version": "1.0.0",
+  "description": "Daily talent book farming schedule for Genshin Impact players",
+  "permissions": ["storage", "activeTab", "alarms"],
+  "host_permissions": ["https://game8.co/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DropCalendar - Genshin Talent Books"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://game8.co/games/Genshin-Impact/archives/311474"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
