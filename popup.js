@@ -3,7 +3,6 @@
 
 class DropCalendar {
   constructor() {
-    this.dataUrl = 'https://game8.co/games/Genshin-Impact/archives/311474'
     this.cacheKey = 'dropCalendar_data'
     this.lastUpdateKey = 'dropCalendar_lastUpdate'
     this.cacheExpiry = 24 * 60 * 60 * 1000 // 24 hours
@@ -23,14 +22,12 @@ class DropCalendar {
 
   // Add Game8.co images for books and characters
   addSampleImages() {
-    // Game8.co character image URLs - systematically organized
+    // Character image URLs from Game8.co CDN
     // Format: 'https://img.game8.co/[ID]/[HASH].png/show'
-    // ✅ = Real URL verified from Game8.co
-    // 🔄 = Placeholder URL (needs extraction from Game8.co)
+    // Used for educational/reference purposes only
 
     const sampleImages = {
-      // All Genshin Impact characters with real Game8.co image URLs
-      // ✅ = Real URL verified from Game8.co extraction
+      // All Genshin Impact characters with Game8.co image URLs
 
       // A-D Characters
       Albedo: 'https://img.game8.co/3310758/429ff8386dab8be2f4b1de43ac783f19.png/show', // ✅
@@ -736,11 +733,7 @@ class DropCalendar {
 
   async fetchFreshData() {
     try {
-      // Attempt to get fresh data via content script
-      const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-
-      // For now, we'll use the default schedule since Game8 has anti-scraping measures
-      // In a real implementation, this would parse the fetched data
+      // Always use the default schedule data (manual updates)
       console.log('Using default schedule data')
 
       // Ensure we have the default schedule data
@@ -754,7 +747,7 @@ class DropCalendar {
         [this.lastUpdateKey]: Date.now(),
       })
     } catch (error) {
-      console.error('Error fetching fresh data:', error)
+      console.error('Error caching data:', error)
       // Ensure we have default data
       if (!this.scheduleData || !this.scheduleData.monday) {
         this.scheduleData = this.getDefaultSchedule()

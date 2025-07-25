@@ -1,10 +1,9 @@
 // Background service worker for DropCalendar
-// Handles periodic data updates and extension lifecycle
+// Handles data caching and extension lifecycle
 
 console.log('DropCalendar background script loaded')
 
 const config = {
-  dataUrl: 'https://game8.co/games/Genshin-Impact/archives/311474',
   cacheKey: 'dropCalendar_data',
   lastUpdateKey: 'dropCalendar_lastUpdate',
   cacheExpiry: 24 * 60 * 60 * 1000, // 24 hours
@@ -18,7 +17,7 @@ async function checkForUpdates() {
 
     // Check if cache has expired
     if (now - lastUpdate >= config.cacheExpiry) {
-      console.log('Cache expired, attempting to fetch fresh data')
+      console.log('Cache expired, refreshing timestamp')
       await saveDefaultData()
     }
   } catch (error) {
@@ -38,11 +37,6 @@ async function saveDefaultData() {
 async function handleMessage(request, sender, sendResponse) {
   try {
     switch (request.action) {
-      case 'updateData':
-        await saveData(request.data)
-        sendResponse({ success: true })
-        break
-
       case 'forceUpdate':
         await saveDefaultData()
         sendResponse({ success: true })
@@ -55,14 +49,6 @@ async function handleMessage(request, sender, sendResponse) {
     console.error('Error handling message:', error)
     sendResponse({ error: error.message })
   }
-}
-
-async function saveData(data) {
-  await chrome.storage.local.set({
-    [config.cacheKey]: data,
-    [config.lastUpdateKey]: Date.now(),
-  })
-  console.log('Data updated from content script')
 }
 
 // Handle extension installation

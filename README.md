@@ -101,8 +101,10 @@ DropCalendar/
 ├── ⚙️ popup.js           # Core logic + Game8.co integration
 ├── 🎨 styles.css         # Dark mode styles + glassmorphism
 ├── 🔧 background.js      # Service worker (optimized)
-├── 📡 content-script.js  # Game8.co data extraction
-├── 🖼️ icon*.png          # Extension icons
+├── � icons/             # Extension icons folder
+│   ├── 🖼️ icon16.png     # 16x16 icon
+│   ├── 🖼️ icon48.png     # 48x48 icon
+│   └── 🖼️ icon128.png    # 128x128 icon
 └── 📖 README.md          # This file
 ```
 
@@ -172,13 +174,13 @@ cd DropCalendar
 
 ### Credits
 
-- **Game8.co** - Image sources and schedule data
+- **Game8.co** - Character and book images (used for educational purposes)
 - **miHoYo/HoYoverse** - Genshin Impact creators
 - **Community** - Feedback and contributions
 
 ### Legal
 
-_This extension is not affiliated with miHoYo/HoYoverse or Game8.co. Genshin Impact is a trademark of miHoYo/HoYoverse._
+_This extension is not affiliated with miHoYo/HoYoverse or Game8.co. Genshin Impact is a trademark of miHoYo/HoYoverse. Character images are used for educational/reference purposes only._
 
 ---
 
