@@ -821,8 +821,15 @@ class DropCalendar {
 
       if (lastUpdate) {
         const date = new Date(lastUpdate)
-        const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        lastUpdatedElement.textContent = `Last updated: ${timeString}`
+        const dateString = date.toLocaleDateString([], { 
+          month: 'short', 
+          day: 'numeric' 
+        })
+        const timeString = date.toLocaleTimeString([], { 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        })
+        lastUpdatedElement.textContent = `Last updated: ${dateString} ${timeString}`
       } else {
         lastUpdatedElement.textContent = 'Last updated: Never'
       }
